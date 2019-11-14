@@ -1,0 +1,14 @@
+# 踩坑记录：
+# 1. spring.application.name 不能是 nacos，因为会和 nacos 服务名冲突
+# 2. bootstrap.yml 中不能使用 @value@ 读取 pom 配置
+# 3. 配置中心不能通过注册中心去发现，必须配置好配置中心
+spring:
+  application:
+    name: nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: centos-vm:8848
+      config:
+        server-addr: centos-vm:8848
+        file-extension: yml

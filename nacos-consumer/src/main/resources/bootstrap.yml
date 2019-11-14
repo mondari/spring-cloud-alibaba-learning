@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: nacos-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: centos-vm:8848
+      config:
+        server-addr: centos-vm:8848
+        file-extension: yml
