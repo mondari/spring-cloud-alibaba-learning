@@ -1,5 +1,6 @@
 package com.mondar;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -32,6 +33,7 @@ public class NacosProviderApplication {
         SpringApplication.run(NacosProviderApplication.class, args);
     }
 
+    @SentinelResource
     @GetMapping("hello")
     public String hello(@RequestParam(required = false, defaultValue = "world") String name) {
         return String.format(helloTemplate, name);
