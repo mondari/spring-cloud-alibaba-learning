@@ -39,7 +39,8 @@ public class NacosProviderApplication {
         return String.format(helloTemplate, name);
     }
 
-    @GetMapping("/services")
+    @SentinelResource
+    @GetMapping("services")
     public List<String> getServices() {
         return discoveryClient.getServices();
     }

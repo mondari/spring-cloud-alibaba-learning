@@ -1,5 +1,6 @@
 package com.mondar;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -39,11 +40,13 @@ public class NacosConsumerApplication {
         return builder.build();
     }
 
+    @SentinelResource
     @GetMapping("hello")
     String hello(@RequestParam(required = false, defaultValue = "world") String name) {
         return serviceApi.hello(name);
     }
 
+    @SentinelResource
     @GetMapping("/services")
     List<String> getServices() {
         return serviceApi.getServices();

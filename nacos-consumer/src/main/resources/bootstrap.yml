@@ -8,3 +8,11 @@ spring:
       config:
         server-addr: centos-vm:8848
         file-extension: yml
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: localhost:8080
+
+feign:
+  sentinel:
+    enabled: true
